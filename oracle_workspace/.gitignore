@@ -1,0 +1,23 @@
+
+
+# drivers
+**/drivers
+
+# resource
+**/resource
+
+# classpath
+**/.classpath
+
+# project
+**/.project
+
+# metadata
+.metadata/**
+
+# dbeaver
+**/.dbeaver/**
+
+# settings
+**/.settings/**
+
