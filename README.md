@@ -21,6 +21,7 @@ GET에 비해 속도가 느리다.
 여러 데이터를 작성하거나, 로그인, 회원가입, 글작성 등을 완료할 때 주로 사용한다.
 ```
 ###### ※ 둘 중 어떤 것을 사용해야 할 지 모를 땐 그냥 다 써보자!
+--------------------------------------------------------
 
 **JSP 전체 흐름**
 ```
@@ -28,34 +29,33 @@ a.jsp -> web.xml -> Controller -> DAO -> DB -> b.jsp
 ```
 **Controller(서블릿)**
 ```
-   doGet과 doPost에는 두 개의 매개변수가 있다.
-   1. HttpServletRequest
-      화면으로부터 요청받은 모든 정보를 가지고 있다.
-      사용자가 요청한 경로, ROOT 경로, 파라미터, forward방식의 응답 등
-      forward 방식으로 응답할 때, request.setAttribute("key", value)를 사용한다.
+doGet과 doPost에는 두 개의 매개변수가 있다.
+1. HttpServletRequest
+    화면으로부터 요청받은 모든 정보를 가지고 있다.
+    사용자가 요청한 경로, ROOT 경로, 파라미터, forward방식의 응답 등
+    forward 방식으로 응답할 때, request.setAttribute("key", value)를 사용한다.
 
-   2. HttpServletResponse
-      응답하기 위한 모든 기능을 가지고 있다.
-      직접 HTML 문서를 만들어서 응답, web.xml에 작성된 경로로 이동 등
-      redirect 방식으로 응답할 때, response.sendRedirect("path?key=value&key=value...")를 사용한다.
-      이 때, request객체가 초기화되면서 ROOT경로도 없어지기 때문에
-      path 앞에 request.getContextPath()를 붙여서 ROOT 경로를 표현해준다.
+2. HttpServletResponse
+    응답하기 위한 모든 기능을 가지고 있다.
+    직접 HTML 문서를 만들어서 응답, web.xml에 작성된 경로로 이동 등
+    redirect 방식으로 응답할 때, response.sendRedirect("path?key=value&key=value...")를 사용한다.
+    이 때, request객체가 초기화되면서 ROOT경로도 없어지기 때문에
+    path 앞에 request.getContextPath()를 붙여서 ROOT 경로를 표현해준다.
 ```
-
 **[jsp 방식]**
 ```
-   a.jsp --> b.jsp --> c.jsp
+a.jsp --> b.jsp --> c.jsp
 
-   각 페이지마다 필요 시 자바 코드가 작성되며, DB와 연결하는 코드도 jsp파일 안에서
-   모두 작성된다. 분리되어 있지 않기 때문에 규모가 작은 프로젝트에 어울리는 방식이며,
-   코드가 확장될 수록 가독성이 떨어지고 분업과 유지보수가 좋지 않다.
+각 페이지마다 필요 시 자바 코드가 작성되며, DB와 연결하는 코드도 jsp파일 안에서
+모두 작성된다. 분리되어 있지 않기 때문에 규모가 작은 프로젝트에 어울리는 방식이며,
+코드가 확장될 수록 가독성이 떨어지고 분업과 유지보수가 좋지 않다.
 ```
-**MVC**
+--------------------------------------------------------
+### MVC
 ##### [model1 방식]
-
 ```
 a.jsp --> b.jsp --> c.jsp
-    ↓
+        ↓
     DAO.java
 
 b.jsp에서 dao를 호출함으로써 자바코드가 섞이게 된다. 선언은 JAVA 페이지에 구현이 되어 있기 때문에
@@ -70,8 +70,8 @@ a.jsp   -->   web.xml   -->   Front-Controller.java   ------------>   c.jsp
             Controller.java
                 ↓
             DAO.java
-            ↓
-            DB
+                ↓
+                DB
 
 a.jsp에서 다음 페이지를 이동하기 전 필요한 비지니스 로직을 완벽하게 분리하여 관리한다.
 사용자가 정의한 확장자(.me, .bo, ...)를 페이지 이동 주소(URL)에 작성하게 되면
@@ -113,3 +113,5 @@ MyBatis는 기존 JDBC 방식과는 달리 SQL문을 XML파일에 작성함으�
 SQL문 수정이 편해진다. 또한 DBCP를 사용하여 Connection을 한번에 여러 개 생성하기 때문에 JDBC만 
 사용하는 것보다는 작업효율과 가독성이 좋아진다.
 ```
+
+([back to top](#코리아-it-아카데미-국비과정))
