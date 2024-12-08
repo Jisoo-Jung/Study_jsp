@@ -1,8 +1,8 @@
 # 코리아 IT 아카데미 국비과정
 
 ## JSP ⭐
-![servlet](https://github.com/user-attachments/assets/a154090a-06f3-44e5-af17-939634007a64)
 
+![servlet](https://github.com/user-attachments/assets/a154090a-06f3-44e5-af17-939634007a64)
 --------------------------------------------------------------
 
 **GET 방식과 POST 방식**
